@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="h1ins">
+      <h1>ENi - Memory - S'inscrire</h1
+    </div>
+
+    <div class="inscription">
+      <h2>Inscrivez-vous</h2>
+      <fieldset>
+        <legend>Texte :</legend>
+        <form action="" method="post">
+          <label for="nom">Nom d'utilisateur* :</label>
+          <input
+            type="text"
+            id="nom"
+            name="nom"
+            autofocus
+            required
+            placeholder="DOE"
+            pattern="[A-Za-Z]{2,}"
+            title="Saisissez votre nom (2 caractères min.)"
+          />
+          <br />
+          <br />
+          <label for="email">Email* :</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            required
+            placeholder="john.doe@example.com"
+          />
+          <br />
+          <br />
+
+          <label for="motdePasse">Mot de passe :</label>
+          <input
+            type="password"
+            id="motdePasse"
+            name="motdePasse"
+            required
+            title="Saisissez votre mot de passe"
+          />
+          <br />
+          <br />
+          <label for="confirmmotdePasse">Confirmer le mot de passe :</label>
+          <input
+            type="password"
+            id="confirmmotdePasse"
+            name="confirmmotdePasse"
+            required
+            title="Confirmez votre mot de passe"
+          />
+          <br />
+          <br />
+          <input type="reset" />
+          <input type="submit" />
+        </form>
+        <p>* champ obligatoire</p>
+      </fieldset>
+    </div>
+  </body>
+</html>

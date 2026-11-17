@@ -1,39 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connexion</title>
-</head>
-<body>
-    <h1>Se connecter</h1>
-     <fieldset>
-      <legend>Texte :</legend>
-      <form action="" method="post">
-       <label for="email">Email* :</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          required
-          placeholder="john.doe@example.com"
-        />
-        <br />
-        <br />
-        <label for="motdePasse">Mot de passe :</label>
-        <input
-          type="password"
-          id="motdePasse"
-          name="motdePasse"
-          required
-          title="Saisissez votre mot de passe"
-        />
-        <br />
-        <br />
-        <input type="reset" />
-        <input type="submit" />
-      </form>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Se connecter</h1>
+
+      <nav
+        class="navbar navbar-expand d-inline-flex bg-dark px-2 py-1 rounded border border-secondary ms-3"
+        data-bs-theme="dark"
+      >
+        <div class="navbar-nav">
+          <a class="nav-link px-3" href="index.html">Accueil</a>
+          <a class="nav-link px-3" href="inscription.html">S'inscrire</a>
+          <a
+            class="nav-link px-3 active bg-black rounded"
+            href="connection.html"
+            >Se connecter</a
+          >
+          <a class="nav-link px-3" href="profil.html">Profil</a>
+          <a class="nav-link px-3" href="jouer.html">Jouer</a>
+        </div>
+      </nav>
+    </header>
+    <fieldset>
+      <div class="card text-bg-dark rounded-4 p-4 w-50 mx-auto">
+        <form action="" method="post">
+          <label for="email">Email* :</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="john.doe@example.com"
+          />
+          <br />
+          <br />
+          <label for="motdePasse">Mot de passe :</label>
+          <input
+            type="password"
+            id="motdePasse"
+            name="motdePasse"
+            required
+            title="Saisissez votre mot de passe"
+          />
+          <br />
+          <br />
+          <div class="d-flex justify-content-center gap-5">
+            <button>Se connecter</button>
+            <button>Annuler</button>
+          </div>
+        </form>
+      </div>
     </fieldset>
-    
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

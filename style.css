@@ -10,12 +10,6 @@
   margin: 0 auto;
 }
 
-.inscription {
-  width: 80px;
-  display: block;
-  margin: 0 auto;
-}
-
 .h1ins {
   width: 500px;
   display: block;
@@ -26,4 +20,9 @@
   width: 500px;
   display: block;
   margin: 0 auto;
+}
+
+body {
+  background: linear-gradient(135deg, #c0ff70, #7a6cf0);
+  min-height: 100vh;
 }

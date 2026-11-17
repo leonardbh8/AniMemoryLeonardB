@@ -28,18 +28,26 @@
         </div>
       </nav>
     </header>
+    <main class="container my-4">
+    <div class="row">
+    <div class="col-12 col-lg-7 mx-auto card text-bg-dark rounded-4 p-4">
 
-    
-    
+        <div class=" nb-3">
+        <label for="nomprofil" class="form-label">Nom d'utilisateur :</label>
+        <input class="form-control" id="nomprofil" readonly>
+        </div>
 
-    
+        <div class=" nb-3">
+        <label for="emailprofil" class="form-label">Email :</label>
+        <input class="form-control" id="emailprofil" readonly>
+        </div>
+        
 
 
-
-
-
-    <label for="memory">Choix du memory :</label>
-    <select name="memory" id="memory">
+    <div class=" nb-3"></div>
+    <label for="memory" class="form-label">Choix du memory :</label>
+    <select name="memory" class="form-select" id="memory">
+    </div>
         <option value="animauxanime">Animaux Animes</option>
         <option value="animaux">Animaux</option>
         <option value="animauxdomestiques">Animaux Domestiques</option>
@@ -50,12 +58,17 @@
         <option value="dinossaures">Dinosaures</option>
     </select>
 
-
-    <label for="taille">Choix du la taille :</label>
-    <select name="taille" id="taille">
+    <div class=" nb-3">
+    <label for="taille" class="form-label">Choix du la taille :</label>
+    <select name="taille" class="form-select" id="taille">
+    </div>
         <option value="petit">4*3</option>
         <option value="moyen">6*4</option>
         <option value="grand">8*5</option>
+
+    </div>
+    </div>
+    </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
 

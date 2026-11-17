@@ -22,7 +22,35 @@
   margin: 0 auto;
 }
 
+/* Me permet de personalisser la page la en l'occurence le fond coloré et la taille de la page */
 body {
   background: linear-gradient(135deg, #c0ff70, #7a6cf0);
   min-height: 100vh;
+}
+
+/* Sélectionne tout les h1 et je les details */
+h1 {
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+/* me permet d'aligner mes éléments dans les form */
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input,
+form select {
+  width: 100%;
+}
+
+/* me permet de centrer ma navbar */
+header {
+  text-align: center;
+}
+
+header nav {
+  margin-left: 0 !important;
 }

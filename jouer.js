@@ -1,0 +1,89 @@
+// commencement du jeu le js viens chercher les cartes et faire le tableau id tableau
+
+//sert à trouver ton tableau dans la page html id tableau pour que le JS puisse y poser les cartes.
+const tableau = document.getElementById("tableau");
+
+// creation tableau legumes
+
+const tabbase = [
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
+];
+
+let id = 0;
+
+tabbase.forEach(function (image) {
+  const col = document.createElement("div");
+  col.classList.add("col");
+  const interrogation = document.createElement("img");
+  interrogation.src = image;
+  interrogation.alt = "interrogation";
+  interrogation.id = String(id);
+  id++;
+
+  interrogation.classList.add("img-fluid", "rounded-4", "p-2", "bg-light");
+  col.appendChild(interrogation);
+  tableau.appendChild(col);
+});
+
+const images = [
+  "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/1.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/2.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/3.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/4.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/5.svg",
+  "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/6.svg",
+];
+
+// creation tableau on fait rentrer le premier contenat 6 images deux fois dans le tab finale pour qu'il y ai les paires
+
+const finalImages = [...images, ...images];
+melangerTableau(finalImages);
+
+// Ecrit les 12 images du tableau final dans le html avec un forEach pour chaque image on créer une div col
+//document.createElement == creer du html
+//forEach == boucle qu me permet de pas tout faire a la main dans le html comme j'avais commencer avec les <td> et en plus le html reste figé alors que le js rajoute la dynamique
+// const col = document.createElement("div"); == fabrique case col == colonne
+//col.classList.add("col"); == dis à bootstrap que c'est une case de la grille
+// creer les cases
+
+finalImages.forEach(function (image) {
+  const col = document.createElement("div");
+  col.classList.add("col");
+
+  // creation de l'image avec les class bootstrap img-fluid rounded-4 p-2 bg-light
+  // carte == l'image
+  //carte.src = image; == mets une image
+  //carte.classList.add("img-fluid", "rounded-4", "p-2", "bg-light"); == style bootstrap
+  const carte = document.createElement("img");
+  carte.src = image;
+  carte.alt = "carte";
+  carte.id = String(id);
+  id++;
+  carte.classList.add("img-fluid", "rounded-4", "p-2", "bg-light");
+
+  // ajout de l'image dans la div col et ajout de la div col dans le tableau carte == image
+  //appendChild ==range dedans la div p ex
+
+  col.appendChild(carte);
+  tableau.appendChild(col);
+});
+
+// Melanger le tableau (aléatoire) Mélanger : l'algorithme de Fisher-Yates
+
+function melangerTableau(tableau) {
+  for (let i = tableau.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [tableau[i], tableau[j]] = [tableau[j], tableau[i]];
+  }
+}

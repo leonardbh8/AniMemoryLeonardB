@@ -5,37 +5,6 @@ const tableau = document.getElementById("tableau");
 
 // creation tableau legumes
 
-const tabbase = [
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-  "M01TP04 - Ressources - Projet Memory/ressources/question.svg",
-];
-
-let id = 0;
-
-tabbase.forEach(function (image) {
-  const col = document.createElement("div");
-  col.classList.add("col");
-  const interrogation = document.createElement("img");
-  interrogation.src = image;
-  interrogation.alt = "interrogation";
-  interrogation.id = String(id);
-  id++;
-
-  interrogation.classList.add("img-fluid", "rounded-4", "p-2", "bg-light");
-  col.appendChild(interrogation);
-  tableau.appendChild(col);
-});
-
 const images = [
   "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/1.svg",
   "M01TP04 - Ressources - Projet Memory/ressources/memory-legume/2.svg",
@@ -57,6 +26,18 @@ melangerTableau(finalImages);
 //col.classList.add("col"); == dis à bootstrap que c'est une case de la grille
 // creer les cases
 
+let id = 0;
+
+let premierecarte = null;
+let secondecarte = null;
+
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space" || event.key === " ") {
+    event.preventDefault();
+    location.reload();
+  }
+});
+
 finalImages.forEach(function (image) {
   const col = document.createElement("div");
   col.classList.add("col");
@@ -66,7 +47,8 @@ finalImages.forEach(function (image) {
   //carte.src = image; == mets une image
   //carte.classList.add("img-fluid", "rounded-4", "p-2", "bg-light"); == style bootstrap
   const carte = document.createElement("img");
-  carte.src = image;
+  carte.src = "M01TP04 - Ressources - Projet Memory/ressources/question.svg";
+  carte.dataset.legume = image;
   carte.alt = "carte";
   carte.id = String(id);
   id++;
@@ -74,6 +56,48 @@ finalImages.forEach(function (image) {
 
   // ajout de l'image dans la div col et ajout de la div col dans le tableau carte == image
   //appendChild ==range dedans la div p ex
+
+  carte.addEventListener("click", function () {
+    if (secondecarte !== null || !carte.src.includes("question")) {
+      return;
+    }
+    carte.src = carte.dataset.legume;
+    if (premierecarte === null) {
+      premierecarte = carte;
+    } else {
+      secondecarte = carte;
+
+      console.log(premierecarte, secondecarte);
+
+      if (premierecarte.dataset.legume === secondecarte.dataset.legume) {
+        premierecarte.classList.remove("bg-light");
+        premierecarte.classList.add("bg-success");
+        secondecarte.classList.remove("bg-light");
+        secondecarte.classList.add("bg-success");
+        premierecarte = null;
+        secondecarte = null;
+      } else {
+        (premierecarte.classList.remove("bg-light"),
+          premierecarte.classList.add("bg-danger"),
+          secondecarte.classList.remove("bg-light"));
+        secondecarte.classList.add("bg-danger");
+
+        setTimeout(function () {
+          premierecarte.src =
+            "M01TP04 - Ressources - Projet Memory/ressources/question.svg";
+          secondecarte.src =
+            "M01TP04 - Ressources - Projet Memory/ressources/question.svg";
+          (premierecarte.classList.remove("bg-danger"),
+            premierecarte.classList.add("bg-light"),
+            secondecarte.classList.remove("bg-danger"),
+            secondecarte.classList.add("bg-light"));
+
+          premierecarte = null;
+          secondecarte = null;
+        }, 500);
+      }
+    }
+  });
 
   col.appendChild(carte);
   tableau.appendChild(col);

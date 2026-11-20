@@ -26,8 +26,11 @@ melangerTableau(finalImages);
 //col.classList.add("col"); == dis à bootstrap que c'est une case de la grille
 // creer les cases
 
+// compteur pour donner un numero unique a chaque carte
 let id = 0;
 
+// Les deux mains elles retiennent les cartes retournées pendant un essai.
+// null = vide, aucune carte en main pour l'instant.
 let premierecarte = null;
 let secondecarte = null;
 
@@ -38,6 +41,10 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+//Boucle qui fabrique le tableau de 12 cartes
+//Boucle qui fabrique le tableau de 12 cartes
+//Avec row-cols-4 sur le plateau : 4 cases par ligne
+
 finalImages.forEach(function (image) {
   const col = document.createElement("div");
   col.classList.add("col");
@@ -46,6 +53,7 @@ finalImages.forEach(function (image) {
   // carte == l'image
   //carte.src = image; == mets une image
   //carte.classList.add("img-fluid", "rounded-4", "p-2", "bg-light"); == style bootstrap
+  //dataset = un "tiroir" invisible attaché à la carte
   const carte = document.createElement("img");
   carte.src = "M01TP04 - Ressources - Projet Memory/ressources/question.svg";
   carte.dataset.legume = image;

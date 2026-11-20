@@ -24,7 +24,7 @@
 
 /* Me permet de personalisser la page la en l'occurence le fond coloré et la taille de la page */
 body {
-  background: linear-gradient(135deg, #c0ff70, #7a6cf0);
+  background: linear-gradient(135deg, #29c584, #3527b3);
   min-height: 100vh;
 }
 
